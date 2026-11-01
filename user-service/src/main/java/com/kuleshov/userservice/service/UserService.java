@@ -10,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -44,4 +46,10 @@ public class UserService {
                 savedUser.getLastName()
         );
     }
-}
+
+    public List<UserResponse> getAllUsers() {
+        log.info("Fetching all users");
+        return userRepository.findAll().stream()
+                .map(user -> new UserResponse(user.getId(), user.getEmail(), user.getFirstName(), user.getLastName()))
+                .toList();
+}}
