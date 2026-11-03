@@ -1,0 +1,15 @@
+services:
+  postgres-auth:
+    image: postgres:15-alpine
+    container_name: auth-service-db
+    environment:
+      POSTGRES_DB: authdb
+      POSTGRES_USER: authuser
+      POSTGRES_PASSWORD: authpassword
+    ports:
+      - "5435:5432"
+    volumes:
+      - auth_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  auth_postgres_data:
