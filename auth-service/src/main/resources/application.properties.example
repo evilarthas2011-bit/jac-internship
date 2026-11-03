@@ -1,13 +1,17 @@
+# Port
 server.port=8081
 
+# Database connection
 spring.datasource.url=jdbc:postgresql://localhost:5435/authdb
 spring.datasource.username=authuser
 spring.datasource.password=authpassword
 spring.datasource.driver-class-name=org.postgresql.Driver
 
+# JPA settings
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 
-spring.security.user.name=disabled
-spring.security.user.password=disabled
+# JWT Configuration (REPLACE WITH YOUR OWN VALUES)
+jwt.secret=CHANGE_ME_TO_YOUR_SECRET_KEY_AT_LEAST_32_CHARACTERS
+jwt.expiration=3600000

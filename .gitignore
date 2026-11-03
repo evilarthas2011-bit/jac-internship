@@ -13,3 +13,8 @@ Thumbs.db
 
 ### Logs ###
 *.log
+
+# Application properties
+**/application.properties
+**/application-*.properties
+!**/application.properties.example
