@@ -1,6 +1,7 @@
 package com.kuleshov.authservice.controller;
 
 import com.kuleshov.authservice.dto.AuthResponse;
+import com.kuleshov.authservice.dto.LoginRequest;
 import com.kuleshov.authservice.dto.RegisterRequest;
 import com.kuleshov.authservice.service.AuthService;
 import jakarta.validation.Valid;
@@ -26,5 +27,11 @@ public class AuthController {
         log.info("Received registration request for email: {}", request.email());
         AuthResponse response = authService.register(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponse> login(@Valid @RequestBody LoginRequest request) {
+        log.info("Received login request for email: {}", request.email());
+        AuthResponse response = authService.login(request);
+        return ResponseEntity.ok(response);
     }
 }
